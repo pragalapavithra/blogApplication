@@ -1,8 +1,15 @@
+import 'package:blog_application/core/app_secrets/app_secrets.dart';
 import 'package:blog_application/core/theme/theme.dart';
-import 'package:blog_application/features/auth/presentation/pages/sign_up_page.dart';
+import 'package:blog_application/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: AppSecrets.supaBaseUrl,
+    anonKey: AppSecrets.supaBaseApiKey,
+  );
   runApp(const MyApp());
 }
 
@@ -15,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Blog Application',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.backgroundColor,
-      home: const SignUpPage(),
+      home: const LoginPage(),
     );
   }
 }
