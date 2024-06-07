@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:blog_application/core/common/routes/routes.dart';
 import 'package:blog_application/core/theme/app_pallette.dart';
 import 'package:blog_application/features/auth/presentation/widgets/auth_field.dart';
 import 'package:blog_application/features/auth/presentation/widgets/auth_gradient_button.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage(name: 'LoginPageRouter')
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -61,17 +64,25 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 16,
               ),
-              RichText(
-                text: TextSpan(
-                  text: "Don't have an account ? ",
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  children: [
-                    TextSpan(
-                        text: 'Sign Up',
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppPallete.gradient2,
-                            fontWeight: FontWeight.bold))
-                  ],
+              GestureDetector(
+                onTap: () {
+                  context.router.replace(const SignUpPageRouter());
+                },
+                child: RichText(
+                  text: TextSpan(
+                    text: "Don't have an account ? ",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    children: [
+                      TextSpan(
+                          text: 'Sign Up',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  color: AppPallete.gradient2,
+                                  fontWeight: FontWeight.bold))
+                    ],
+                  ),
                 ),
               )
             ],
