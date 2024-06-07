@@ -10,7 +10,7 @@ class AuthBloc extends Cubit<AuthState> {
       : _userSignUp = userSignUp,
         super(AuthInitial());
 
-  void _onAuthSignUp(UserParams params) async {
+  void onAuthSignUp(UserParams params) async {
     emit(AuthLoading());
     final res = await _userSignUp.call(params);
     res.fold((failure) => emit(AuthFailure(failure.message)),
