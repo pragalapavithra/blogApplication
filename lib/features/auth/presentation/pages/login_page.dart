@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:blog_application/core/common/cubit/app_user/app_user_state.dart';
 import 'package:blog_application/core/common/routes/routes.dart';
 import 'package:blog_application/core/theme/app_pallette.dart';
 import 'package:blog_application/core/utils/show_snackbar.dart';
@@ -10,7 +11,9 @@ import 'package:blog_application/features/auth/presentation/widgets/auth_gradien
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/common/cubit/app_user/app_user_cubit.dart';
 import '../../../../core/common/widgets/loader.dart';
+import '../../../blog/pages/blog_page.dart';
 
 @RoutePage(name: 'LoginPageRouter')
 class LoginPage extends StatefulWidget {

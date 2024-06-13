@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../domain/entities/User.dart';
+import '../../../../core/common/entities/User.dart';
 
 @immutable
 abstract class AuthState {

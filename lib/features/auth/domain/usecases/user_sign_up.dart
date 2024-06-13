@@ -3,7 +3,7 @@ import 'package:blog_application/core/usecase/usecase.dart';
 import 'package:blog_application/features/auth/domain/repository/auth_repository.dart';
 import 'package:fpdart/src/either.dart';
 
-import '../entities/User.dart';
+import '../../../../core/common/entities/User.dart';
 
 class UserSignUp extends UseCase<User, UserParams> {
   AuthRepository authRepository;

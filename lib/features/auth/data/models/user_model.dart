@@ -1,4 +1,4 @@
-import '../../domain/entities/User.dart';
+import '../../../../core/common/entities/User.dart';
 
 class UserModel extends User {
   UserModel({
@@ -9,9 +9,9 @@ class UserModel extends User {
 
   factory UserModel.fromJson(Map<String, dynamic> map) {
     return UserModel(
-      name: map['user_metadata']['name'] ?? '',
-      email: map['user_metadata']['email'] ?? '',
-      id: map['user_metadata']['id'] ?? '',
+      name: map['name'] ?? '',
+      email: map['email'] ?? '',
+      id: map['id'] ?? '',
     );
   }
 }

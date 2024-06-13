@@ -5,10 +5,25 @@ import 'package:blog_application/features/auth/data/models/user_model.dart';
 import 'package:blog_application/features/auth/domain/repository/auth_repository.dart';
 import "package:fpdart/src/either.dart";
 
+import '../../../../core/common/entities/User.dart';
+
 class AuthRepositoryImpl extends AuthRepository {
   AuthRemoteDataSource authRemoteDataSource;
 
   AuthRepositoryImpl(this.authRemoteDataSource);
+
+  @override
+  Future<Either<Failure, User>> getCurrentUser() async {
+    try {
+      final userData = await authRemoteDataSource.getCurrentUser();
+      if (userData == null) {
+        return left(Failure('User is not Logged In'));
+      }
+      return right(userData);
+    } on ServerException catch (e) {
+      return left(Failure(e.message));
+    }
+  }
 
   @override
   Future<Either<Failure, UserModel>> loginWithEmailPassword(
@@ -32,7 +47,6 @@ class AuthRepositoryImpl extends AuthRepository {
           email: email, password: password, name: name);
       return right(userId);
     } on ServerException catch (e) {
-
       return left(Failure(e.message));
     }
   }
