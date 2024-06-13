@@ -45,7 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
               if (state is AuthFailure) {
                 showSnackBar(context, state.errorMessage);
               } else if (state is AuthSuccess) {
-
+                context.router.push(const BlogPageRouter());
               }
             },
             builder: (context, state) {

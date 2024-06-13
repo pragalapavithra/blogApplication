@@ -15,19 +15,39 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    LoginPageRouter.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LoginPage(),
-      );
-    },
     SignUpPageRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SignUpPage(),
       );
     },
+    LoginPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginPage(),
+      );
+    },
+    BlogPageRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BlogPage(),
+      );
+    },
   };
+}
+
+/// generated route for
+/// [SignUpPage]
+class SignUpPageRouter extends PageRouteInfo<void> {
+  const SignUpPageRouter({List<PageRouteInfo>? children})
+      : super(
+          SignUpPageRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignUpPageRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -45,15 +65,15 @@ class LoginPageRouter extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SignUpPage]
-class SignUpPageRouter extends PageRouteInfo<void> {
-  const SignUpPageRouter({List<PageRouteInfo>? children})
+/// [BlogPage]
+class BlogPageRouter extends PageRouteInfo<void> {
+  const BlogPageRouter({List<PageRouteInfo>? children})
       : super(
-          SignUpPageRouter.name,
+          BlogPageRouter.name,
           initialChildren: children,
         );
 
-  static const String name = 'SignUpPageRouter';
+  static const String name = 'BlogPageRouter';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
